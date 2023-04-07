@@ -1,0 +1,41 @@
+main {
+  .keyword {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .keywordWrap {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    img {
+      width: 48px;
+      cursor: pointer;
+    }
+  }
+  .noun {
+    display: flex;
+    flex-direction: column;
+    .nounHeader {
+      margin-top: 31px;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      hr {
+        width: 100%;
+        background: #e9e9e9;
+        border: none;
+        height: 1px;
+      }
+    }
+    p {
+      margin-top: 34px;
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      margin-top: 17px;
+    }
+  }
+}
