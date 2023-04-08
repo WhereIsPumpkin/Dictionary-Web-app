@@ -6,12 +6,25 @@ import arrow from "./assets/images/icon-arrow-down.svg";
 import moon from "./assets/images/icon-moon.svg";
 
 export default function Header({ font, setFont }) {
+  const [fontList, setFontList] = useState(false);
+
   return (
-    <header>
-      <img src={logo} alt="logoBook" />
+    <header style={{ fontFamily: `${font}` }}>
+      <img src={logo} alt="logoBook" className={styles.logo} />
       <section className={styles.rightSide}>
-        <div className={styles.fontSelect}>
-          {font}
+        <div
+          onClick={() => setFontList(!fontList)}
+          className={styles.fontSelect}
+        >
+          {font === "Inter" ? (
+            <p>Sans Serif</p>
+          ) : font === "Lora" ? (
+            <p>Serif</p>
+          ) : font === "Inconsolata" ? (
+            <p>Mono</p>
+          ) : (
+            "Sans Serif"
+          )}
           <img src={arrow} alt="arrowDown" />
         </div>
 
@@ -24,13 +37,36 @@ export default function Header({ font, setFont }) {
           <img src={moon} alt="moon" />
         </div>
       </section>
-      <div className={styles.fontList}>
-        <ul>
-          <li>Sans Serif</li>
-          <li>Serif</li>
-          <li>Mono</li>
-        </ul>
-      </div>
+      {fontList && (
+        <div className={styles.fontList}>
+          <ul>
+            <li
+              onClick={() => {
+                setFont("Inter");
+                setFontList(false);
+              }}
+            >
+              Sans Serif
+            </li>
+            <li
+              onClick={() => {
+                setFont("Lora");
+                setFontList(false);
+              }}
+            >
+              Serif
+            </li>
+            <li
+              onClick={() => {
+                setFont("Inconsolata");
+                setFontList(false);
+              }}
+            >
+              Mono
+            </li>
+          </ul>
+        </div>
+      )}
     </header>
   );
 }

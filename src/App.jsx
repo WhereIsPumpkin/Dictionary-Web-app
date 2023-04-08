@@ -5,7 +5,7 @@ import Info from "./Info.jsx";
 import "./reset.css";
 
 function App() {
-  const [font, setFont] = useState("sans-serif");
+  const [font, setFont] = useState("intern");
 
   return (
     <>
