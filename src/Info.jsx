@@ -26,7 +26,10 @@ export default function Info({
   return showdata ? (
     <>
       {errorOccurred ? (
-        <div className={styles.errorPage} style={{ fontFamily: `${font}` }}>
+        <div
+          className={`${styles.errorPage} ${dark ? styles.dark : null}`}
+          style={{ fontFamily: `${font}` }}
+        >
           <h1 className={styles.emoji}>😕</h1>
           <h2>No definitions Found</h2>
           <p>
