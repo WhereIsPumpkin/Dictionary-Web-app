@@ -5,8 +5,8 @@ import Info from "./Info.jsx";
 import "./reset.css";
 
 function App() {
-  const [font, setFont] = useState("intern");
-  const [data, setData] = useState(".");
+  const [font, setFont] = useState("inter");
+  const [data, setData] = useState(" ");
   const [showdata, setShowData] = useState(false);
   return (
     <>

@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import playButton from "./assets/images/icon-play.svg";
 import styles from "./Info.module.scss";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Info({ font, setFont, data, showdata }) {
-  console.log(data);
   const audioRef = useRef(null);
 
   const handlePlay = () => {
@@ -35,20 +35,22 @@ export default function Info({ font, setFont, data, showdata }) {
             <hr />
           </div>
           <p className={styles.meaning}>Meaning</p>
-          <ul>
-            <li>
-              <span></span>(etc.) A set of keys used to operate a typewriter,
-              computer etc.
-            </li>
-            <li>
-              <span></span>(etc.) A set of keys used to operate a typewriter,
-              computer etc.
-            </li>
-            <li>
-              <span></span>(etc.) A set of keys used to operate a typewriter,
-              computer etc.
-            </li>
-          </ul>
+          {data &&
+          data.length > 0 &&
+          data[0].meanings &&
+          data[0].meanings.length > 0 &&
+          data[0].meanings[0].definitions
+            ? data[0].meanings[0].definitions.map((definition) => {
+                return (
+                  <ul>
+                    <li key={uuidv4()}>
+                      <span></span>
+                      {definition.definition}
+                    </li>
+                  </ul>
+                );
+              })
+            : null}
         </section>
       </main>
     </>
