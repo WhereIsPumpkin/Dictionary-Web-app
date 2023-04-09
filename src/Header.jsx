@@ -5,11 +5,14 @@ import logo from "./assets/images/logo.svg";
 import arrow from "./assets/images/icon-arrow-down.svg";
 import moon from "./assets/images/icon-moon.svg";
 
-export default function Header({ font, setFont }) {
+export default function Header({ font, setFont, setDark, dark }) {
   const [fontList, setFontList] = useState(false);
 
   return (
-    <header style={{ fontFamily: `${font}` }}>
+    <header
+      style={{ fontFamily: `${font}` }}
+      className={dark ? styles.dark : ""}
+    >
       <img src={logo} alt="logoBook" className={styles.logo} />
       <section className={styles.rightSide}>
         <div
@@ -31,7 +34,10 @@ export default function Header({ font, setFont }) {
         <div className={styles.darkMode}>
           <label className={toggle.switch}>
             <input type="checkbox" />
-            <span className={`${toggle.slider} ${toggle.round}`}></span>
+            <span
+              onClick={() => setDark(!dark)}
+              className={`${toggle.slider} ${toggle.round}`}
+            ></span>
           </label>
 
           <img src={moon} alt="moon" />

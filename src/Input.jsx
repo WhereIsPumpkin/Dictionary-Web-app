@@ -9,6 +9,7 @@ export default function Input({
   setData,
   setShowData,
   setErrorOccurred,
+  dark,
 }) {
   const [inputValue, setInputValue] = useState("");
 
@@ -27,7 +28,7 @@ export default function Input({
   };
 
   return (
-    <div className={styles.searchContainer}>
+    <div className={`${styles.searchContainer} ${dark ? styles.dark : null}`}>
       <input
         type="text"
         placeholder="Search for any word…"

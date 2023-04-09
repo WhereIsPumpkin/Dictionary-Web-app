@@ -3,7 +3,14 @@ import playButton from "./assets/images/icon-play.svg";
 import styles from "./Info.module.scss";
 import { v4 as uuidv4 } from "uuid";
 
-export default function Info({ font, setFont, data, showdata, errorOccurred }) {
+export default function Info({
+  font,
+  setFont,
+  data,
+  showdata,
+  errorOccurred,
+  dark,
+}) {
   const audioRef = useRef(null);
   console.log(data);
   const handlePlay = () => {
@@ -32,7 +39,10 @@ export default function Info({ font, setFont, data, showdata, errorOccurred }) {
         <>
           <audio ref={audioRef} />
 
-          <main style={{ fontFamily: `${font}` }}>
+          <main
+            className={dark ? styles.dark : null}
+            style={{ fontFamily: `${font}` }}
+          >
             <section className={styles.keyword}>
               <div className={styles.keywordWrap}>
                 <h1 className={styles.dataKeyword}>{data[0].word}</h1>
@@ -56,16 +66,16 @@ export default function Info({ font, setFont, data, showdata, errorOccurred }) {
                       <hr />
                     </div>
                     <p className={styles.meaning}>Meaning</p>
-                    {meaning.definitions.map((definition) => {
-                      return (
-                        <ul>
+                    <ul>
+                      {meaning.definitions.map((definition) => {
+                        return (
                           <li key={uuidv4()}>
                             <span></span>
                             {definition.definition}
                           </li>
-                        </ul>
-                      );
-                    })}
+                        );
+                      })}
+                    </ul>
                   </section>
                 );
               })}

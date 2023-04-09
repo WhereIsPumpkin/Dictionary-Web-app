@@ -30,6 +30,7 @@ main {
     display: flex;
     flex-direction: column;
     ul {
+      padding-left: 0;
       li {
         list-style: none;
         padding-left: 30px;
@@ -105,5 +106,30 @@ main {
     font-size: 15px;
     line-height: 24px;
     color: #757575;
+  }
+}
+main.dark {
+  background-color: #050505;
+  .keyword {
+    .keywordWrap {
+      h1 {
+        color: white;
+      }
+    }
+  }
+  .partOfSpeech {
+    .partOfSpeechHeader {
+      h3 {
+        color: white;
+      }
+      hr {
+        background: #3a3a3a;
+      }
+    }
+    ul {
+      li {
+        color: white;
+      }
+    }
   }
 }
