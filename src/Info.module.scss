@@ -26,7 +26,7 @@ main {
       cursor: pointer;
     }
   }
-  .noun {
+  .partOfSpeech {
     display: flex;
     flex-direction: column;
     ul {
@@ -52,7 +52,7 @@ main {
       line-height: 19px;
       color: #757575;
     }
-    .nounHeader {
+    .partOfSpeechHeader {
       margin-top: 31px;
       display: flex;
       align-items: center;

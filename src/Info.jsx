@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function Info({ font, setFont, data, showdata }) {
   const audioRef = useRef(null);
-
+  console.log(data);
   const handlePlay = () => {
     const phoneticWithAudio = data[0].phonetics.find(
       (phonetic) => phonetic.audio
@@ -29,29 +29,32 @@ export default function Info({ font, setFont, data, showdata }) {
           <img src={playButton} onClick={handlePlay} />
         </section>
 
-        <section className={styles.noun}>
-          <div className={styles.nounHeader}>
-            <h3 style={{ fontFamily: `${font}` }}>noun</h3>
-            <hr />
-          </div>
-          <p className={styles.meaning}>Meaning</p>
-          {data &&
+        {data &&
           data.length > 0 &&
           data[0].meanings &&
           data[0].meanings.length > 0 &&
-          data[0].meanings[0].definitions
-            ? data[0].meanings[0].definitions.map((definition) => {
-                return (
-                  <ul>
-                    <li key={uuidv4()}>
-                      <span></span>
-                      {definition.definition}
-                    </li>
-                  </ul>
-                );
-              })
-            : null}
-        </section>
+          data[0].meanings.map((meaning) => {
+            const partOfSpeech = meaning.partOfSpeech;
+            return (
+              <section className={styles.partOfSpeech}>
+                <div className={styles[`partOfSpeechHeader`]}>
+                  <h3 style={{ fontFamily: `${font}` }}>{partOfSpeech}</h3>
+                  <hr />
+                </div>
+                <p className={styles.meaning}>Meaning</p>
+                {meaning.definitions.map((definition) => {
+                  return (
+                    <ul>
+                      <li key={uuidv4()}>
+                        <span></span>
+                        {definition.definition}
+                      </li>
+                    </ul>
+                  );
+                })}
+              </section>
+            );
+          })}
       </main>
     </>
   ) : null;
