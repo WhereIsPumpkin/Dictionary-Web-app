@@ -7,6 +7,7 @@ import "./reset.css";
 function App() {
   const [font, setFont] = useState("inter");
   const [data, setData] = useState(" ");
+  const [errorOccurred, setErrorOccurred] = useState(false);
   const [showdata, setShowData] = useState(false);
   return (
     <>
@@ -16,8 +17,15 @@ function App() {
         setFont={setFont}
         setData={setData}
         setShowData={setShowData}
+        setErrorOccurred={setErrorOccurred}
       />
-      <Info font={font} setFont={setFont} data={data} showdata={showdata} />
+      <Info
+        font={font}
+        setFont={setFont}
+        data={data}
+        showdata={showdata}
+        errorOccurred={errorOccurred}
+      />
     </>
   );
 }

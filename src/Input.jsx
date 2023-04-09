@@ -3,14 +3,27 @@ import searcIcon from "./assets/images/icon-search.svg";
 import axios from "axios";
 import styles from "./Input.module.scss";
 
-export default function Input({ font, setFont, setData, setShowData }) {
+export default function Input({
+  font,
+  setFont,
+  setData,
+  setShowData,
+  setErrorOccurred,
+}) {
   const [inputValue, setInputValue] = useState("");
 
   const handleButtonClick = async () => {
-    const response = await axios.get(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
-    );
-    setData(response.data);
+    try {
+      const response = await axios.get(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${inputValue}`
+      );
+      setData(response.data);
+      setErrorOccurred(false);
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        setErrorOccurred(true);
+      }
+    }
   };
 
   return (
