@@ -29,6 +29,36 @@ export default function Header({ font, setFont, setDark, dark }) {
             "Sans Serif"
           )}
           <img src={arrow} alt="arrowDown" />
+          {fontList && (
+            <div className={styles.fontList}>
+              <ul>
+                <li
+                  onClick={() => {
+                    setFont("Inter");
+                    setFontList(false);
+                  }}
+                >
+                  Sans Serif
+                </li>
+                <li
+                  onClick={() => {
+                    setFont("Lora");
+                    setFontList(false);
+                  }}
+                >
+                  Serif
+                </li>
+                <li
+                  onClick={() => {
+                    setFont("Inconsolata");
+                    setFontList(false);
+                  }}
+                >
+                  Mono
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className={styles.darkMode}>
@@ -43,36 +73,6 @@ export default function Header({ font, setFont, setDark, dark }) {
           <img src={moon} alt="moon" />
         </div>
       </section>
-      {fontList && (
-        <div className={styles.fontList}>
-          <ul>
-            <li
-              onClick={() => {
-                setFont("Inter");
-                setFontList(false);
-              }}
-            >
-              Sans Serif
-            </li>
-            <li
-              onClick={() => {
-                setFont("Lora");
-                setFontList(false);
-              }}
-            >
-              Serif
-            </li>
-            <li
-              onClick={() => {
-                setFont("Inconsolata");
-                setFontList(false);
-              }}
-            >
-              Mono
-            </li>
-          </ul>
-        </div>
-      )}
     </header>
   );
 }

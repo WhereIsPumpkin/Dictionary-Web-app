@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import playButton from "./assets/images/icon-play.svg";
 import styles from "./Info.module.scss";
 import { v4 as uuidv4 } from "uuid";
+import newlink from "./assets/images/icon-new-window.svg";
 
 export default function Info({
   font,
@@ -82,6 +83,19 @@ export default function Info({
                   </section>
                 );
               })}
+
+            <section className={styles.source}>
+              <p>Source</p>
+              <span>
+                {data &&
+                  data.length > 0 &&
+                  data[0].sourceUrls &&
+                  data[0].sourceUrls.length > 0 && (
+                    <a href={data[0].sourceUrls[0]}>{data[0].sourceUrls[0]}</a>
+                  )}
+                <img src={newlink} />
+              </span>
+            </section>
           </main>
         </>
       )}

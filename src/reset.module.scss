@@ -15,3 +15,9 @@ body {
     background: #050505;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  .mainWrapper {
+    padding: 58px 352px 123px 351px !important;
+  }
+}

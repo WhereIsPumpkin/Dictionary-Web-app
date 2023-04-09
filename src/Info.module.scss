@@ -82,6 +82,31 @@ main {
       margin-top: 17px;
     }
   }
+  .source {
+    margin-top: 32px;
+    padding-top: 26px;
+    border-top: 1px solid #e9e9e9;
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 15px;
+      text-decoration-line: underline;
+      color: #757575;
+      margin-bottom: 10px;
+    }
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 15px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      a {
+        text-decoration: none;
+        color: #2d2d2d;
+      }
+    }
+  }
 }
 .errorPage {
   display: flex;
@@ -132,6 +157,11 @@ main.dark {
       }
     }
   }
+  .source {
+    a {
+      color: white;
+    }
+  }
 }
 .errorPage.dark {
   background-color: #050505;
@@ -143,5 +173,50 @@ main.dark {
   }
   p {
     color: white;
+  }
+}
+@media screen and (min-width: 1440px) {
+  main {
+    .keyword {
+      img {
+        width: 75px;
+      }
+      .keywordWrap {
+        h1 {
+          font-size: 64px;
+        }
+        p {
+          margin-top: 8px;
+          font-size: 24px;
+        }
+      }
+    }
+    .partOfSpeech {
+      .partOfSpeechHeader {
+        h3 {
+          font-size: 24px;
+        }
+      }
+      .meaning {
+        font-size: 20px;
+      }
+      ul {
+        margin-top: 25px;
+        li {
+          font-size: 18px;
+        }
+      }
+    }
+    .source {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      p {
+        margin-bottom: 0;
+      }
+      span {
+        cursor: pointer;
+      }
+    }
   }
 }
